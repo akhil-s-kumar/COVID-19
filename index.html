@@ -87,6 +87,7 @@
         <p class="copyright">There is no © for this project, you can use this for free 😊</p>
         <p class="copyright">Designed, Developed & Maintaained by <a href="https://www.instagram.com/_.akhil.sk._"
             target="blank">Akhil S Kumar<a></a></p>
+        <p style="color: #ffffff;">Page Views <span id="count"></span></p>
       </div>
     </div>
   </div>
@@ -105,6 +106,17 @@
   <script type="text/javascript" src="./districts.js"></script>
   <script type="text/javascript" src="./slots.js"></script>
   <script type="text/javascript" src="./filters.js"></script>
+  <script>
+    const countEl = document.getElementById("count");
+    updateVisitCount();
+    function updateVisitCount(){
+      fetch("https://api.countapi.xyz/update/visitorCounter/website/?amount=1")
+      .then(res => res.json())
+      .then(res => {
+        countEl.innerHTML = res.value;
+      })
+    }
+  </script>
 </body>
 
 </html>
