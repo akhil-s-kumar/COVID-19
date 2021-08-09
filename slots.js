@@ -32,9 +32,27 @@ function getAvailableSlots() {
     $("#tableBody").empty();
     var mainContainer = document.getElementById("tableBody");
     if (data.sessions.length == 0) {
-      alert("Currently no slots available for this date");
+      $("#noslots").empty();
+      var noslots = document.getElementById("noslots");
+      var noslotimg = document.createElement("img");
+      noslotimg.src = "./Images/noSlots.svg";
+      noslotimg.className = "noSlotImg";
+      noslots.appendChild(noslotimg);
+      var noslotmessage = document.createElement("p");
+      noslotmessage.id = "noSlotAvailable";
+      noslotmessage.innerHTML =
+        "Sorry, Currently No Slots available for your prefered date!";
+      noslots.appendChild(noslotmessage);
     } else {
+      $("#noslots").empty();
+      var emptySlot = [];
       for (var i = 0; i < data.sessions.length; i++) {
+        if (c == "dose1") {
+          emptySlot.push(data.sessions[i].available_capacity_dose1);
+        }
+        if (c == "dose2") {
+          emptySlot.push(data.sessions[i].available_capacity_dose2);
+        }
         if (c == "dose1" && data.sessions[i].available_capacity_dose1 > 0) {
           var trContainer = document.createElement("tr");
           trContainer.className = "rowsElement";
@@ -102,8 +120,20 @@ function getAvailableSlots() {
           mainContainer.appendChild(trContainer);
         }
       }
-      var tbl = document.getElementById("tableBody");
-      console.log(tbl);
+      if (Math.max(...emptySlot) == 0) {
+        console.log(emptySlot);
+        $("#noslots").empty();
+        var noslots = document.getElementById("noslots");
+        var noslotimg = document.createElement("img");
+        noslotimg.src = "./Images/noSlots.svg";
+        noslotimg.className = "noSlotImg";
+        noslots.appendChild(noslotimg);
+        var noslotmessage = document.createElement("p");
+        noslotmessage.id = "noSlotAvailable";
+        noslotmessage.innerHTML =
+          "Sorry, Currently No Slots available for your prefered date!";
+        noslots.appendChild(noslotmessage);
+      }
     }
   }
 }
