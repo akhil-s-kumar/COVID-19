@@ -27,6 +27,13 @@
                   required />
               </div>
               <div class="mb-3">
+                <label for="state">Select Your State</label>
+                <br>
+                <select id="state" class="state" name="state" onchange="getDistrictData()">
+                  <option selected="selected">Select State</option>
+                </select>
+              </div>
+              <div class="mb-3">
                 <label for="district">Select Your District</label>
                 <br>
                 <select id="district" class="district" name="district"></select>
@@ -103,7 +110,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
-  <script type="text/javascript" src="./districts.js"></script>
+  <script type="text/javascript" src="./state&districts.js"></script>
   <script type="text/javascript" src="./slots.js"></script>
   <script type="text/javascript" src="./filters.js"></script>
   <script>

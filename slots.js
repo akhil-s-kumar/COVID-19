@@ -15,7 +15,8 @@ function getAvailableSlots() {
   var b = document.getElementById("district").value;
   var c = document.getElementById("dose").value;
   fetch(
-    `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id=${b}&date=${day}-${month}-${year}`
+    `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id=${b}&date=${day}-${month}-${year}`,
+    { cache: "no-store" }
   )
     .then(function (response) {
       return response.json();
@@ -44,16 +45,16 @@ function getAvailableSlots() {
           tdContainer2.innerHTML = data.sessions[i].available_capacity_dose1;
           trContainer.appendChild(tdContainer2);
           var tdContainer3 = document.createElement("td");
-          if(data.sessions[i].fee_type == "Free"){
-            var tdContainer3Badge = document.createElement("span")
+          if (data.sessions[i].fee_type == "Free") {
+            var tdContainer3Badge = document.createElement("span");
             tdContainer3Badge.className = "badge badge-success";
             tdContainer3Badge.innerHTML = data.sessions[i].fee_type;
-            tdContainer3.appendChild(tdContainer3Badge)
-          }else{
-            var tdContainer3Badge = document.createElement("span")
+            tdContainer3.appendChild(tdContainer3Badge);
+          } else {
+            var tdContainer3Badge = document.createElement("span");
             tdContainer3Badge.className = "badge badge-danger";
             tdContainer3Badge.innerHTML = data.sessions[i].fee_type;
-            tdContainer3.appendChild(tdContainer3Badge)
+            tdContainer3.appendChild(tdContainer3Badge);
           }
           tdContainer3.className = "term";
           trContainer.appendChild(tdContainer3);
@@ -65,7 +66,10 @@ function getAvailableSlots() {
           tdContainer5.innerHTML = data.sessions[i].vaccine;
           trContainer.appendChild(tdContainer5);
           mainContainer.appendChild(trContainer);
-        } else if(c == "dose2" && data.sessions[i].available_capacity_dose2 > 0){
+        } else if (
+          c == "dose2" &&
+          data.sessions[i].available_capacity_dose2 > 0
+        ) {
           var trContainer = document.createElement("tr");
           trContainer.className = "rowsElement";
           var tdContainer1 = document.createElement("td");
@@ -75,16 +79,16 @@ function getAvailableSlots() {
           tdContainer2.innerHTML = data.sessions[i].available_capacity_dose2;
           trContainer.appendChild(tdContainer2);
           var tdContainer3 = document.createElement("td");
-          if(data.sessions[i].fee_type == "Free"){
-            var tdContainer3Badge = document.createElement("span")
+          if (data.sessions[i].fee_type == "Free") {
+            var tdContainer3Badge = document.createElement("span");
             tdContainer3Badge.className = "badge badge-success";
             tdContainer3Badge.innerHTML = data.sessions[i].fee_type;
-            tdContainer3.appendChild(tdContainer3Badge)
-          }else{
-            var tdContainer3Badge = document.createElement("span")
+            tdContainer3.appendChild(tdContainer3Badge);
+          } else {
+            var tdContainer3Badge = document.createElement("span");
             tdContainer3Badge.className = "badge badge-danger";
             tdContainer3Badge.innerHTML = data.sessions[i].fee_type;
-            tdContainer3.appendChild(tdContainer3Badge)
+            tdContainer3.appendChild(tdContainer3Badge);
           }
           tdContainer3.className = "term";
           trContainer.appendChild(tdContainer3);
@@ -98,8 +102,8 @@ function getAvailableSlots() {
           mainContainer.appendChild(trContainer);
         }
       }
-      var tbl = document.getElementById("tableBody")
-      console.log(tbl)
+      var tbl = document.getElementById("tableBody");
+      console.log(tbl);
     }
   }
 }
