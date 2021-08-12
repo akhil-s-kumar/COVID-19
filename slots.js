@@ -22,7 +22,6 @@ function getAvailableSlots() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       appendData(data);
     })
     .catch(function (err) {
