@@ -1,0 +1,145 @@
+body{
+    background-color: #212528;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.topContainer{
+    margin-top: 50px;
+}
+
+.graphCard{
+    border-radius: 15px;
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: #2A2E31;
+}
+
+.statsCard{
+    border-radius: 15px;
+    border: none;
+    background-color: #2A2E31;
+    height: 100%;
+    width:100%;
+}
+
+.statsCard h5 span{
+    color: #1EB955;
+}
+
+.statsCard h5{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.statsCard .confirmed{
+    color: #D82E2F;
+}
+
+.statsCard .active{
+    color: #12B0E8;
+}
+
+.statsCard .recovered{
+    color: #1EB654;
+}
+
+.statsCard .death{
+    color: #758283;
+}
+
+.headTitle{
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.graphStats{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.selectCard{
+    align-items: center;
+    justify-content: center;
+    max-width:100%;
+    border-radius: 15px;
+    border: none;
+    background-color: #2A2E31;
+}
+
+.selectCard h5{
+    color: #ffffff;
+    margin-top: 10px;
+    font-size: small;
+}
+
+.statsCard ul{
+    display:flex;
+    padding-left: 0;
+    margin-left: 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.statsCard li{
+    list-style-type: none;
+}
+
+.statsCard li i{
+    color: #1EB955;
+    margin-right: 10px;
+}
+
+.statsCard li h6{
+    color: #ffffff;
+}
+
+.copyright{
+    color: #ffffff;
+    font-size: small;
+    margin-top: 20px;
+}
+
+.btnStyle{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-image: linear-gradient(to right, #137735, #1EB955);
+    width: 250px;
+    border: none;
+    border-radius: 50px;
+}
+
+.slotAvailability{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.slotAvailability p{
+    color: #ffffff;
+    font-size: small;
+}
+
+.slotAvailability i{
+    color: #1EB654;
+    font-size: medium;
+    margin-right: 10px;
+}
+
+.SlotImg{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 60%;
+    align-items: center;
+}
+
+@media only screen and (max-width: 992px) {
+    .statsCard {
+      margin-top: 20px;
+    }
+    .slotInfo{
+        text-align: center;
+        margin-top: 30px;
+    }
+  }
